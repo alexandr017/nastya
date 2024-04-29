@@ -1,8 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\site;
+namespace App\Http\Controllers\Site;
 
-class IndexController
+use Illuminate\Routing\Controller;
+class IndexController extends Controller
 {
-
+    public function index()
+    {
+        dd(111);
+    }
 }
