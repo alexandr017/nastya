@@ -6,12 +6,12 @@ class AttractionsController
 {
     public function listOfAttractions()
     {
-        return dd('list');
+        return view('attractions');
     }
 
     public function opedAttraction($alias)
     {
-        return dd($alias);
+        return view('attraction-details');
     }
 
     public function favorites()

@@ -6,7 +6,7 @@ class BlogController
 {
     public function blogIndex()
     {
-        dd('index');
+        return view('blog-index');
     }
 
     public function opedPost($alias)
