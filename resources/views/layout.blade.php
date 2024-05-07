@@ -9,9 +9,8 @@
     <meta charset="UTF-8">
     <!-- Site Title -->
 
-    <title>Travel</title>
-    <!-- Meta Description -->
-    <meta name="description" content="">
+    <title>@yield('title')</title>
+    <meta name="description" content="@yield('meta_description')">
 
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">

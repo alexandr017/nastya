@@ -1,6 +1,8 @@
 <?php
 $attractions = [1,2,3,4,5,6,7,8,9];
 ?>
+@section('title', $page->title)
+@section('meta_description', $page->meta_description)
 @extends('layout')
 
 
@@ -11,10 +13,8 @@ $attractions = [1,2,3,4,5,6,7,8,9];
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
-                <h1 class="text-white">
-                    Hotels
-                </h1>
-                <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="hotels.html"> Hotels</a></p>
+                <h1 class="text-white">{{$page->h1}}</h1>
+                <p class="text-white link-nav"><a href="/">Главная </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#"> {{$page->breadcrumb}}</a></p>
             </div>
         </div>
     </div>
@@ -27,8 +27,7 @@ $attractions = [1,2,3,4,5,6,7,8,9];
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-40 col-lg-8">
                 <div class="title text-center">
-                    <h1 class="mb-10">Список достопримечательностей</h1>
-                    <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, day to.</p>
+                    <p>{{$page->lead}}</p>
                 </div>
             </div>
         </div>

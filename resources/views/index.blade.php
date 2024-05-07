@@ -1,3 +1,5 @@
+@section('title', $page->title)
+@section('meta_description', $page->meta_description)
 @extends('layout')
 
 @section('content')
@@ -9,9 +11,9 @@
             <div class="row fullscreen align-items-center justify-content-between">
                 <div class="col-lg-6 col-md-6 banner-left">
                     <h6 class="text-white">Away from monotonous life</h6>
-                    <h1 class="text-white">Magical Travel</h1>
+                    <h1 class="text-white">{{$page->h1}}</h1>
                     <p class="text-white">
-                        If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see some for as low as $.17 each.
+                        {{$page->lead}}
                     </p>
                     <a href="#" class="primary-btn text-uppercase">Get Started</a>
                 </div>
@@ -80,6 +82,10 @@
 
 
 
+
+
+
+
     <!-- Start testimonial Area -->
     <section class="testimonial-area section-gap">
         <div class="container">
@@ -93,114 +99,23 @@
             </div>
             <div class="row">
                 <div class="active-testimonial">
+
+                    @foreach($reviews as $review)
                     <div class="single-testimonial item d-flex flex-row">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/elements/user1.png" alt="">
-                        </div>
+{{--                        <div class="thumb">--}}
+{{--                            <img class="img-fluid" src="/template/img/elements/user1.png" alt="">--}}
+{{--                        </div>--}}
                         <div class="desc">
-                            <p>
-                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.
-                            </p>
-                            <h4>Harriet Maxwell</h4>
+                            <p>{{$review->review}}</p>
+                            <h4>{{$review->name}}</h4>
                             <div class="star">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
+                                @for($i = 1; $i <= 5; $i++)
+                                    <span class="fa fa-star @if($i <= $review->rating) checked @endif"></span>
+                                @endfor
                             </div>
                         </div>
                     </div>
-                    <div class="single-testimonial item d-flex flex-row">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/elements/user2.png" alt="">
-                        </div>
-                        <div class="desc">
-                            <p>
-                                A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
-                            </p>
-                            <h4>Carolyn Craig</h4>
-                            <div class="star">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-testimonial item d-flex flex-row">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/elements/user1.png" alt="">
-                        </div>
-                        <div class="desc">
-                            <p>
-                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.
-                            </p>
-                            <h4>Harriet Maxwell</h4>
-                            <div class="star">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-testimonial item d-flex flex-row">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/elements/user2.png" alt="">
-                        </div>
-                        <div class="desc">
-                            <p>
-                                A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
-                            </p>
-                            <h4>Carolyn Craig</h4>
-                            <div class="star">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-testimonial item d-flex flex-row">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/elements/user1.png" alt="">
-                        </div>
-                        <div class="desc">
-                            <p>
-                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.
-                            </p>
-                            <h4>Harriet Maxwell</h4>
-                            <div class="star">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-testimonial item d-flex flex-row">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/elements/user2.png" alt="">
-                        </div>
-                        <div class="desc">
-                            <p>
-                                A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
-                            </p>
-                            <h4>Carolyn Craig</h4>
-                            <div class="star">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
