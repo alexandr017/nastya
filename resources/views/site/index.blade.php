@@ -1,6 +1,6 @@
 @section('title', $page->title)
 @section('meta_description', $page->meta_description)
-@extends('layout')
+@extends('site.layout')
 
 @section('content')
 

@@ -1,7 +1,7 @@
 <?php $news = [1,2,3,4,5,6,7,8,9,10]; ?>
 @section('title', $page->title)
 @section('meta_description', $page->meta_description)
-@extends('layout')
+@extends('site.layout')
 
 @section('content')
 
@@ -28,7 +28,7 @@
                     <div class="single-cat-widget">
                         <div class="content relative">
                             <div class="overlay overlay-bg"></div>
-                            <a href="#" target="_blank">
+                            <a href="/blog/regergreg" target="_blank">
                                 <div class="thumb">
                                     <img class="content-image img-fluid d-block mx-auto" src="/template/img/blog/cat-widget1.jpg" alt="">
                                 </div>

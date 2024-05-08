@@ -11,11 +11,19 @@ class Attraction extends Model
 
     protected $table = 'attractions';
 
-    // расстояние от цента
-    // рейтинг?
-    // бесплоатный входа (да/ нет)
-    // text
-    protected $fillable = ['category_id','title', 'h1', 'meta_description', 'breadcrumb', 'preview', 'content', 'status'];
+    protected $fillable = [
+        'category_id',
+        'title',
+        'h1',
+        'meta_description',
+        'breadcrumb',
+        'preview',
+        'content',
+        'distance_from_center',
+        'is_free_entry',
+        'is_availability_of_excursions',
+        'status'
+    ];
 
     public $timestamps = false;
 }

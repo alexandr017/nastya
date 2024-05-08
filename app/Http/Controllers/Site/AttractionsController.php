@@ -10,16 +10,18 @@ class AttractionsController
     {
         $ID_PAGE = 2;
         $page = StaticPage::where(['id' => $ID_PAGE])->first();
-        return view('attractions', compact('page'));
+        return view('site.attractions', compact('page'));
     }
 
     public function opedAttraction($alias)
     {
-        return view('attraction-details');
+        return view('site.attraction-details');
     }
 
     public function favorites()
     {
-        return dd('favorites');
+        $ID_PAGE = 3;
+        $page = StaticPage::where(['id' => $ID_PAGE])->first();
+        return view('site.favorites', compact('page'));
     }
 }

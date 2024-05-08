@@ -12,6 +12,6 @@ class IndexController extends Controller
         $ID_PAGE = 1;
         $reviews = Review::all();
         $page = StaticPage::where(['id' => $ID_PAGE])->first();
-        return view('index', compact('reviews', 'page'));
+        return view('site.index', compact('reviews', 'page'));
     }
 }

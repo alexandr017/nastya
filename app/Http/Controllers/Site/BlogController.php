@@ -10,12 +10,12 @@ class BlogController
     {
         $ID_PAGE = 4;
         $page = StaticPage::where(['id' => $ID_PAGE])->first();
-        return view('blog-index', compact('page'));
+        return view('site.blog-index', compact('page'));
     }
 
     public function opedPost($alias)
     {
-        dd($alias);
+        return view('site.blog-opened');
     }
 
 }

@@ -3,7 +3,7 @@ $attractions = [1,2,3,4,5,6,7,8,9];
 ?>
 @section('title', $page->title)
 @section('meta_description', $page->meta_description)
-@extends('layout')
+@extends('site.layout')
 
 
 @section('content')
