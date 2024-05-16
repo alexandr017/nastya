@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-class StaticPagesController
+class DashboardController
 {
     public function index()
     {
-        dd(1);
+        return view('admin.dashboard');
     }
 }
