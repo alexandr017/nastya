@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('h1', 'Создание статической страницы')
+@section('h1', 'Создание записи блога')
 
 
 
@@ -8,7 +8,7 @@
 
     <div class="card">
         <div class="card-body">
-            <form method="post" action="/admin-panel/static-pages/store">
+            <form method="post" action="/admin-panel/blog/store">
                 <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}">
 
                 <div class="form-group">
@@ -37,13 +37,26 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="lead" class="col-form-label">Текст после заголовка</label>
-                    <textarea id="lead" name="lead" class="form-control" rows="10"></textarea>
+                    <label for="preview" class="col-form-label">Ссылка на главное изображение</label>
+                    <input id="preview" name="preview" type="text" class="form-control" required>
                 </div>
 
                 <div class="form-group">
                     <label for="content" class="col-form-label">Контент</label>
                     <textarea id="content" name="content" class="form-control" rows="10"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="date" class="col-form-label">Дата публикации</label>
+                    <input type="date" id="date" name="date" class="form-control" value="{{date('Y-m-d')}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="status" class="col-form-label">Статус</label>
+                    <select name="status" id="status" class="form-control" required>
+                        <option value="1">Опубликовано</option>
+                        <option value="0">Не опубликовано</option>
+                    </select>
                 </div>
 
                 <div class="card-group">

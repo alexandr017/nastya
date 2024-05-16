@@ -1,38 +1,34 @@
 @extends('admin.layout')
-@section('h1', 'Список достопримечательностей')
+@section('h1', 'Список статических страниц')
 
 
 
 @section('content')
 
-    <a href="/admin-panel/attractions/create" class="btn btn-info"><i class="fas fa-plus"></i> Добавить достопримечательность</a>
+    @if(Session::has('alert-success'))
+        <div class="alert alert-success" role="alert">{{Session::get('alert-success')}}</div>
+    @endif
+
+    <a href="/admin-panel/static-pages/create" class="btn btn-info"><i class="fas fa-plus"></i> Добавить страницу</a>
 
 
     <table class="table table-striped">
         <thead>
         <tr>
             <th scope="col">id</th>
-            <th scope="col">Название</th>
-            <th scope="col">Статус</th>
+            <th scope="col">H1</th>
             <th scope="col">Действие</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($attractions as $attraction)
+        @foreach($pages as $page)
             <tr>
-                <th scope="row">{{$attraction->id}}</th>
-                <td>{{$attraction->h1}}</td>
+                <th scope="row">{{$page->id}}</th>
+                <td>{{$page->h1}}</td>
                 <td>
-                    @if($attraction->status)
-                        <span class="badge badge-success">Опубликовано</span>
-                    @else
-                        <span class="badge badge-warning">Не опубликовано</span>
-                    @endif
-                </td>
-                <td>
-                    <a href="/admin-panel/attractions/edit/{{$attraction->id}}" class="btn btn-info" title="Редактировать"><i class="fas fa-pencil-alt"></i></a>
+                    <a href="/admin-panel/static-pages/edit/{{$page->id}}" class="btn btn-info" title="Редактировать"><i class="fas fa-pencil-alt"></i></a>
 
-                    <form style="display: inline-block;vertical-align: -1px;" method="post" action="/admin-panel/attractions/destroy/{{$attraction->id}}">
+                    <form style="display: inline-block;vertical-align: -1px;" method="post" action="/admin-panel/static-pages/destroy/{{$page->id}}">
                         <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}">
 
                         <div class="card-group">

@@ -13,6 +13,7 @@ class Attraction extends Model
 
     protected $fillable = [
         'category_id',
+        'alias',
         'title',
         'h1',
         'meta_description',

@@ -10,12 +10,11 @@
         <div class="container">
             <div class="row fullscreen align-items-center justify-content-between">
                 <div class="col-lg-6 col-md-6 banner-left">
-                    <h6 class="text-white">Away from monotonous life</h6>
                     <h1 class="text-white">{{$page->h1}}</h1>
                     <p class="text-white">
                         {{$page->lead}}
                     </p>
-                    <a href="#" class="primary-btn text-uppercase">Get Started</a>
+                    <a href="/attractions" class="primary-btn text-uppercase">Перейти</a>
                 </div>
                 <div class="col-lg-4 col-md-6 banner-right">
                 </div>
@@ -31,7 +30,7 @@
                 <div class="menu-content pb-70 col-lg-8">
                     <div class="title text-center">
                         <h1 class="mb-10">Популярные достопримечательности</h1>
-                        <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, day.</p>
+                        <p>Топ самых популярных достопримечательностей в Гродно</p>
                     </div>
                 </div>
             </div>
@@ -40,7 +39,7 @@
                     <div class="single-destination relative">
                         <div class="thumb relative">
                             <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="img/d1.jpg" alt="">
+                            <img class="img-fluid" src="/template/img/d1.jpg" alt="">
                         </div>
                         <div class="desc">
                             <a href="#" class="price-btn">$150</a>
@@ -53,7 +52,7 @@
                     <div class="single-destination relative">
                         <div class="thumb relative">
                             <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="img/d2.jpg" alt="">
+                            <img class="img-fluid" src="/template/img/d2.jpg" alt="">
                         </div>
                         <div class="desc">
                             <a href="#" class="price-btn">$250</a>
@@ -66,7 +65,7 @@
                     <div class="single-destination relative">
                         <div class="thumb relative">
                             <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="img/d3.jpg" alt="">
+                            <img class="img-fluid" src="/template/img/d3.jpg" alt="">
                         </div>
                         <div class="desc">
                             <a href="#" class="price-btn">$350</a>
@@ -128,17 +127,15 @@
             <div class="row align-items-center justify-content-end">
                 <div class="col-lg-6 col-md-12 home-about-left">
                     <h1>
-                        Did not find your Package? <br>
-                        Feel free to ask us. <br>
-                        We‘ll make it for you
+                        Советская улица - <br>как отдельная достопримечательность
                     </h1>
                     <p>
                         inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed.
                     </p>
-                    <a href="#" class="primary-btn text-uppercase">request custom price</a>
+                    <a href="#" class="primary-btn text-uppercase">Подробнее</a>
                 </div>
                 <div class="col-lg-6 col-md-12 home-about-right no-padding">
-                    <img class="img-fluid" src="img/about-img.jpg" alt="">
+                    <img class="img-fluid" src="/template/images/right-banner.jpg" alt="улица Советская">
                 </div>
             </div>
         </div>
@@ -152,8 +149,8 @@
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-60 col-lg-9">
                     <div class="title text-center">
-                        <h1 class="mb-10">Latest from Our Blog</h1>
-                        <p>With the exception of Nietzsche, no other madman has contributed so much to human sanity as has.</p>
+                        <h1 class="mb-10">Последние записи блога</h1>
+                        <p>Самая свежая и актуальная информация для гостей города и области. Помощь для туристов, студентов и много другой полезной информации.</p>
                     </div>
                 </div>
             </div>
@@ -161,7 +158,7 @@
                 <div class="active-recent-blog-carusel">
                     <div class="single-recent-blog-post item">
                         <div class="thumb">
-                            <img class="img-fluid" src="img/b1.jpg" alt="">
+                            <img class="img-fluid" src="/template/img/b1.jpg" alt="">
                         </div>
                         <div class="details">
                             <div class="tags">
@@ -183,7 +180,7 @@
                     </div>
                     <div class="single-recent-blog-post item">
                         <div class="thumb">
-                            <img class="img-fluid" src="img/b2.jpg" alt="">
+                            <img class="img-fluid" src="/template/img/b2.jpg" alt="">
                         </div>
                         <div class="details">
                             <div class="tags">
@@ -205,7 +202,7 @@
                     </div>
                     <div class="single-recent-blog-post item">
                         <div class="thumb">
-                            <img class="img-fluid" src="img/b3.jpg" alt="">
+                            <img class="img-fluid" src="/template/img/b3.jpg" alt="">
                         </div>
                         <div class="details">
                             <div class="tags">
@@ -227,7 +224,7 @@
                     </div>
                     <div class="single-recent-blog-post item">
                         <div class="thumb">
-                            <img class="img-fluid" src="img/b1.jpg" alt="">
+                            <img class="img-fluid" src="/template/img/b1.jpg" alt="">
                         </div>
                         <div class="details">
                             <div class="tags">
@@ -249,7 +246,7 @@
                     </div>
                     <div class="single-recent-blog-post item">
                         <div class="thumb">
-                            <img class="img-fluid" src="img/b2.jpg" alt="">
+                            <img class="img-fluid" src="/template/img/b2.jpg" alt="">
                         </div>
                         <div class="details">
                             <div class="tags">
@@ -271,7 +268,7 @@
                     </div>
                     <div class="single-recent-blog-post item">
                         <div class="thumb">
-                            <img class="img-fluid" src="img/b3.jpg" alt="">
+                            <img class="img-fluid" src="/template/img/b3.jpg" alt="">
                         </div>
                         <div class="details">
                             <div class="tags">

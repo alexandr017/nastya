@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Models\StaticPages\StaticPage;
+use App\Models\Attractions\Attraction;
 
 class AttractionsController
 {
@@ -10,7 +11,8 @@ class AttractionsController
     {
         $ID_PAGE = 2;
         $page = StaticPage::where(['id' => $ID_PAGE])->first();
-        return view('site.attractions', compact('page'));
+        $attractions = Attraction::where(['status' => 1])->get();
+        return view('site.attractions', compact('page', 'attractions'));
     }
 
     public function opedAttraction($alias)

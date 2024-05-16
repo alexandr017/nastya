@@ -11,7 +11,7 @@ class Post extends Model
 
     protected $table = 'posts';
 
-    protected $fillable = ['title', 'h1', 'meta_description', 'breadcrumb', 'preview', 'content', 'date', 'status'];
+    protected $fillable = ['alias', 'title', 'h1', 'meta_description', 'breadcrumb', 'preview', 'content', 'date', 'status'];
 
     public $timestamps = false;
 

@@ -1,11 +1,15 @@
 @extends('admin.layout')
-@section('h1', 'Список категорий достопримечательностей')
+@section('h1', 'Список достопримечательностей')
 
 
 
 @section('content')
 
-    <a href="/admin-panel/attraction-categories/create" class="btn btn-info"><i class="fas fa-plus"></i> Добавить категорию</a>
+    @if(Session::has('alert-success'))
+        <div class="alert alert-success" role="alert">{{Session::get('alert-success')}}</div>
+    @endif
+
+    <a href="/admin-panel/attractions/create" class="btn btn-info"><i class="fas fa-plus"></i> Добавить достопримечательность</a>
 
 
     <table class="table table-striped">
@@ -13,18 +17,26 @@
         <tr>
             <th scope="col">id</th>
             <th scope="col">Название</th>
+            <th scope="col">Статус</th>
             <th scope="col">Действие</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($categories as $category)
+        @foreach($attractions as $attraction)
             <tr>
-                <th scope="row">{{$category->id}}</th>
-                <td>{{$category->name}}</td>
+                <th scope="row">{{$attraction->id}}</th>
+                <td>{{$attraction->h1}}</td>
                 <td>
-                    <a href="/admin-panel/attraction-categories/edit/{{$category->id}}" class="btn btn-info" title="Редактировать"><i class="fas fa-pencil-alt"></i></a>
+                    @if($attraction->status)
+                        <span class="badge badge-success">Опубликовано</span>
+                    @else
+                        <span class="badge badge-warning">Не опубликовано</span>
+                    @endif
+                </td>
+                <td>
+                    <a href="/admin-panel/attractions/edit/{{$attraction->id}}" class="btn btn-info" title="Редактировать"><i class="fas fa-pencil-alt"></i></a>
 
-                    <form style="display: inline-block;vertical-align: -1px;" method="post" action="/admin-panel/attraction-categories/destroy/{{$category->id}}">
+                    <form style="display: inline-block;vertical-align: -1px;" method="post" action="/admin-panel/attractions/destroy/{{$attraction->id}}">
                         <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}">
 
                         <div class="card-group">

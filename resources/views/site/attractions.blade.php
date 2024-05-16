@@ -1,6 +1,3 @@
-<?php
-$attractions = [1,2,3,4,5,6,7,8,9];
-?>
 @section('title', $page->title)
 @section('meta_description', $page->meta_description)
 @extends('site.layout')
@@ -36,47 +33,35 @@ $attractions = [1,2,3,4,5,6,7,8,9];
             <div class="col-lg-4">
                 <div class="single-destinations">
                     <div class="thumb">
-                        <img src="/template/img/hotels/d1.jpg" alt="">
+                        <img src="{{$attraction->preview}}" alt="{{$attraction->h1}}">
                     </div>
                     <div class="details">
                         <h4 class="d-flex justify-content-between">
-                            <span>Hilton Star Hotel</span>
-                            <div class="star">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
+                            <span>{{$attraction->h1}}</span>
+{{--                            <div class="star">--}}
+{{--                                <span class="fa fa-star checked"></span>--}}
+{{--                                <span class="fa fa-star checked"></span>--}}
+{{--                                <span class="fa fa-star checked"></span>--}}
+{{--                                <span class="fa fa-star checked"></span>--}}
+{{--                                <span class="fa fa-star"></span>--}}
+{{--                            </div>--}}
                         </h4>
                         <ul class="package-list">
                             <li class="d-flex justify-content-between align-items-center">
-                                <span>Swimming pool</span>
-                                <span>Yes</span>
+                                <span>Расстояние от центра Гродно</span>
+                                <span>{{$attraction->distance_from_center}} км.</span>
                             </li>
                             <li class="d-flex justify-content-between align-items-center">
-                                <span>Gymnesium</span>
-                                <span>No</span>
+                                <span>Бесплатный вход</span>
+                                <span>@if($attraction->is_free_entry) Да @else Нет @endif</span>
                             </li>
                             <li class="d-flex justify-content-between align-items-center">
-                                <span>Wi-fi</span>
-                                <span>Yes</span>
+                                <span>Наличие экскурсии</span>
+                                <span>@if($attraction->is_availability_of_excursions) Да @else Нет @endif</span>
                             </li>
                             <li class="d-flex justify-content-between align-items-center">
-                                <span>Room Service</span>
-                                <span>No</span>
-                            </li>
-                            <li class="d-flex justify-content-between align-items-center">
-                                <span>Air Condition</span>
-                                <span>Yes</span>
-                            </li>
-                            <li class="d-flex justify-content-between align-items-center">
-                                <span>Restaurant</span>
-                                <span>Yes</span>
-                            </li>
-                            <li class="d-flex justify-content-between align-items-center">
-                                <span>Price per night</span>
-                                <a href="/attractions/ergreg" class="price-btn">Подробнее</a>
+                                <span>Музей</span>
+                                <a href="/attractions/{{$attraction->alias}}" class="price-btn">Подробнее</a>
                             </li>
                         </ul>
                     </div>
@@ -97,17 +82,15 @@ $attractions = [1,2,3,4,5,6,7,8,9];
         <div class="row align-items-center justify-content-end">
             <div class="col-lg-6 col-md-12 home-about-left">
                 <h1>
-                    Did not find your Package? <br>
-                    Feel free to ask us. <br>
-                    We‘ll make it for you
+                    Советская улица - <br>как отдельная достопримечательность
                 </h1>
                 <p>
                     inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed.
                 </p>
-                <a href="#" class="primary-btn text-uppercase">request custom price</a>
+                <a href="#" class="primary-btn text-uppercase">Подробнее</a>
             </div>
             <div class="col-lg-6 col-md-12 home-about-right no-padding">
-                <img class="img-fluid" src="img/hotels/about-img.jpg" alt="">
+                <img class="img-fluid" src="/template/images/right-banner.jpg" alt="улица Советская">
             </div>
         </div>
     </div>

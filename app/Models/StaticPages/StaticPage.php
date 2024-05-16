@@ -11,7 +11,7 @@ class StaticPage extends Model
 
     protected $table = 'static_pages';
 
-    protected $fillable = ['title', 'h1', 'meta_description', 'breadcrumb', 'lead', 'content'];
+    protected $fillable = ['alias','title', 'h1', 'meta_description', 'breadcrumb', 'lead', 'content'];
 
     public $timestamps = false;
 }
