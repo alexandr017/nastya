@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\__API;
 
-use App\Http\Controllers\API\BaseController as BaseController;
+use App\Http\Controllers\__API\BaseController as BaseController;
 use App\Models\Users\Users;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\JsonResponse;
@@ -50,9 +50,6 @@ class RegisterController extends BaseController
         $request->authenticate();
 
         $request->session()->regenerate();
-
-
-        dd(\Auth::id());
 
 
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){

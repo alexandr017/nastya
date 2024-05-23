@@ -22,6 +22,12 @@
     <section class="destinations-area section-gap">
         <div class="container">
 
+            @if(\Auth::id() != null)
+                <p>Вы уже вошли</p>
+            @else
+                <p>Вход</p>
+            @endif
+
             <form action="/login" method="POST">
                 @csrf
                 <div class="form-group">

@@ -33,7 +33,7 @@
             <div class="col-lg-4">
                 <div class="single-destinations">
                     <div class="thumb">
-                        <img src="{{$attraction->preview}}" alt="{{$attraction->h1}}">
+                        <img src="{{$attraction->preview}}" alt="{{$attraction->h1}}" loading="lazy">
                     </div>
                     <div class="details">
                         <h4 class="d-flex justify-content-between">

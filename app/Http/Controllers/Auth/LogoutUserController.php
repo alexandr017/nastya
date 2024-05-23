@@ -2,7 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-class LogoutUserController
+use App\Http\Controllers\Controller;
+use \Auth;
+class LogoutUserController extends Controller
 {
 
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('login');
+    }
 }

@@ -17,7 +17,12 @@ class AttractionsController
 
     public function opedAttraction($alias)
     {
-        return view('site.attraction-details');
+        $attraction = Attraction::where(['alias' => $alias, 'status' => 1])->first();
+        if ($attraction == null) {
+            return abort(404);
+        }
+
+        return view('site.attraction-details', compact('attraction'));
     }
 
     public function favorites()

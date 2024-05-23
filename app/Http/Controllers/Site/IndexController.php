@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use Illuminate\Routing\Controller;
 use App\Models\Reviews\Review;
 use App\Models\StaticPages\StaticPage;
+use Auth;
 class IndexController extends Controller
 {
     public function index()

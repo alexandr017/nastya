@@ -24,7 +24,7 @@ class ParserController
 
         $isFirstLine = true;
 
-        DB::transaction(function() use($data, $isFirstLine) {
+        //DB::transaction(function() use($data, $isFirstLine) {
             foreach ($data as $row) {
 
                 if ($isFirstLine) {
@@ -33,7 +33,7 @@ class ParserController
                 }
 
 
-                $data = [
+                $_data = [
                     'category_id' => $row[1],
                     'alias' => Str::slug($row[3]),
                     'title' => $row[2],
@@ -42,16 +42,16 @@ class ParserController
                     'breadcrumb' => $row[5],
                     'preview' => $row[6],
                     'content' => $row[7],
-                    'distance_from_center' => $row[8],
+                    'distance_from_center' => str_replace(',', '.', $row[8]),
                     'is_free_entry' => $row[9],
                     'is_availability_of_excursions' => $row[10],
                     'status' => $row[11]
                 ];
 
-                $attraction = new Attraction($data);
+                $attraction = new Attraction($_data);
                 $attraction->save();
             }
-        });
+        //});
 
         echo 'Все ок';
     }
@@ -79,15 +79,17 @@ class ParserController
                     continue;
                 }
 
+
+                $tmpDate = date('Y-m-d', strtotime($row[7]));
                 $data = [
-                    'alias' => $row[4],
+                    'alias' => Str::slug($row[4]),
                     'title'=> $row[1],
                     'h1'=> $row[3],
                     'meta_description' => $row[2],
                     'breadcrumb' => $row[4],
                     'preview' => $row[5],
                     'content' => $row[6],
-                    'date' => $row[7],
+                    'date' => date($tmpDate),
                     'status' => $row[8]
                 ];
 
