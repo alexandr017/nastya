@@ -13,7 +13,14 @@
                     <li><a href="/">Главная</a></li>
                     <li><a href="/attractions">Достопримечательности</a></li>
                     <li><a href="/blog">Блог</a></li>
-                    <li><a href="/favorites">Избранное</a></li>
+                    @if (\Auth::id() != null)
+                        <li><a href="/favorites">Избранное</a></li>
+                    @endif
+                    @if(\Auth::id() == null)
+                    <li><a href="/login">Вход</a></li>
+                    @else
+                    <li><a href="/logout">Выход</a></li>
+                    @endif
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>

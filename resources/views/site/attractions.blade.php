@@ -38,13 +38,6 @@
                     <div class="details">
                         <h4 class="d-flex justify-content-between">
                             <span>{{$attraction->h1}}</span>
-{{--                            <div class="star">--}}
-{{--                                <span class="fa fa-star checked"></span>--}}
-{{--                                <span class="fa fa-star checked"></span>--}}
-{{--                                <span class="fa fa-star checked"></span>--}}
-{{--                                <span class="fa fa-star checked"></span>--}}
-{{--                                <span class="fa fa-star"></span>--}}
-{{--                            </div>--}}
                         </h4>
                         <ul class="package-list">
                             <li class="d-flex justify-content-between align-items-center">
@@ -76,25 +69,6 @@
 <!-- End destinations Area -->
 
 
-<!-- Start home-about Area -->
-<section class="home-about-area">
-    <div class="container-fluid">
-        <div class="row align-items-center justify-content-end">
-            <div class="col-lg-6 col-md-12 home-about-left">
-                <h1>
-                    Советская улица - <br>как отдельная достопримечательность
-                </h1>
-                <p>
-                    inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed.
-                </p>
-                <a href="#" class="primary-btn text-uppercase">Подробнее</a>
-            </div>
-            <div class="col-lg-6 col-md-12 home-about-right no-padding">
-                <img class="img-fluid" src="/template/images/right-banner.jpg" alt="улица Советская">
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End home-about Area -->
+
 
 @endsection

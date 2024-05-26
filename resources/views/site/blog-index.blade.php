@@ -29,7 +29,7 @@
                             <div class="overlay overlay-bg"></div>
                             <a href="/blog/{{$post->alias}}" target="_blank">
                                 <div class="thumb">
-                                    <img class="content-image img-fluid d-block mx-auto" src="/template/img/blog/cat-widget1.jpg" alt="{{$post->h1}}">
+                                    <img class="content-image img-fluid d-block mx-auto" src="{{$post->preview}}" alt="{{$post->h1}}">
                                 </div>
                                 <div class="content-details">
                                     <h4 class="content-title mx-auto">{{$post->h1}}</h4>
@@ -46,4 +46,47 @@
         </div>
     </section>
     <!-- End top-category-widget Area -->
+
+
+
+
+
+
+    <!-- Start blog Area -->
+    <section class="recent-blog-area section-gap">
+
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-60 col-lg-9">
+                    <div class="title text-center">
+                        <h1 class="mb-10">Последние записи блога</h1>
+                        <p>Самая свежая и актуальная информация для гостей города и области. Помощь для туристов, студентов и много другой полезной информации.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="active-recent-blog-carusel">
+
+                    @foreach($posts as $post)
+                        <div class="single-recent-blog-post item">
+                            <div class="thumb">
+                                <a href="/blog/{{$post->alias}}"> <img class="img-fluid" src="{{$post->preview}}" alt=""></a>
+                            </div>
+                            <div class="details">
+
+                                <a href="/blog/{{$post->alias}}"><h4 class="title">{{$post->h1}}</h4></a>
+                                <p>{{$post->meta_description}}</p>
+                                <h6 class="date">{{date('d.m.Y', strtotime($post->date))}}</h6>
+                            </div>
+                        </div>
+                    @endforeach
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End recent-blog Area -->
+
+
 @endsection

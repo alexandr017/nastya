@@ -1,22 +1,24 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+@section('title', 'Регистрация')
+@section('meta_description', 'Регистрация')
+@extends('site.layout')
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+@section('content')
+    <!-- start banner Area -->
+    <section class="about-banner relative">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content col-lg-12">
+                    <h1 class="text-white">Вход</h1>
+                    <p class="text-white link-nav"><a href="/">Главная </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#"> Вход</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End banner Area -->
 
-    <!-- Styles -->
-    <script src="https://cdn.tailwindcss.com"></script>
 
-</head>
-<body class="font-sans bg-gray-100 h-screen flex items-center justify-center">
-
-<div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
     <!-- Session Status -->
     @if (session('status'))
         <div class="mb-4 text-green-600">
@@ -24,14 +26,16 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ route('login') }}" class="space-y-4">
+    <!-- Start destinations Area -->
+    <section class="destinations-area section-gap">
+        <div class="container">
+
+
+        <form method="POST" action="{{ route('login') }}">
         @csrf
-        <!-- Email Address -->
-        <div>
+        <div class="form-group">
             <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
-            <input id="email" type="email" name="email" value="{{ old('email') }}"
-                   class="mt-1 p-2 w-full border rounded-md"
-                   required autofocus autocomplete="username">
+            <input id="email" type="email" name="email" value="{{ old('email') }}" class="form-control" required>
             @error('email')
             <div class="mt-2 text-red-600 text-sm">
                 {{ $message }}
@@ -40,11 +44,9 @@
         </div>
 
         <!-- Password -->
-        <div>
-            <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
-            <input id="password" type="password" name="password"
-                   class="mt-1 p-2 w-full border rounded-md"
-                   required autocomplete="current-password">
+        <div class="form-group">
+            <label for="password" class="block text-sm font-medium text-gray-600">Пароль</label>
+            <input id="password" type="password" name="password" class="form-control" required>
             @error('password')
             <div class="mt-2 text-red-600 text-sm">
                 {{ $message }}
@@ -54,25 +56,30 @@
 
         <!-- Remember Me -->
         <div class="flex items-center">
-            <input id="remember_me" type="checkbox" name="remember"
-                   class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500">
-            <label for="remember_me" class="ml-2 text-sm text-gray-600">Remember me</label>
+            <input id="remember_me" type="checkbox" name="remember">
+            <label for="remember_me" class="text-sm text-gray-600" style="margin: 0 0 0 10px;">Запомнить меня</label>
         </div>
 
-        <div class="flex items-center justify-between mt-4">
-            @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}"
-                   class="text-sm text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Forgot your password?
-                </a>
-            @endif
-
-            <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded-md">
-                Log in
-            </button>
+        <div class="flex items-center justify-between mt-2">
+            Нет аккаунта? <a href="/register" style="margin: 0 0 5px 5px;">Зарегистрироваться</a>
         </div>
+        <button type="submit" class="btn btn-primary">Войти</button>
     </form>
-</div>
 
-</body>
-</html>
+
+
+
+    <div class="row d-flex justify-content-center">
+        <div class="menu-content pb-40 col-lg-8">
+            <div class="title text-center">
+
+            </div>
+        </div>
+    </div>
+    <div class="row"></div>
+    </div>
+    </section>
+    <!-- End destinations Area -->
+
+
+@endsection

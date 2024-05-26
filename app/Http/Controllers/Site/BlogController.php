@@ -21,7 +21,11 @@ class BlogController
 
     public function opedPost($alias)
     {
-        return view('site.blog-opened');
+        $post = Post::where(['alias' => $alias, 'status' => 1])->first();
+        if ($post == null) {
+            return abort(404);
+        }
+        return view('site.blog-opened', compact('post'));
     }
 
 }
