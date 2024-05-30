@@ -920,7 +920,8 @@ td, th {
 }
 
 b, sup, sub, u, del {
-  color: #f8b600;
+  font-weight: bold;
+    color: #000;
 }
 
 h1 {
@@ -2371,6 +2372,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #logo {
   padding-left: 15px;
+    color: #fff;
 }
 
 #nav-menu-container {
@@ -2507,13 +2509,13 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .banner-left h1 {
   margin: 20px 0;
-  font-size: 60px;
+  font-size: 28px;
   text-transform: uppercase;
 }
 
 @media (max-width: 1199px) {
   .banner-left h1 {
-    font-size: 40px;
+    font-size: 28px;
   }
 }
 
@@ -2525,7 +2527,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 @media (max-width: 991px) and (min-width: 768px) {
   .banner-left h1 {
-    font-size: 36px;
+    font-size: 28px;
   }
   .banner-left h6 {
     font-size: 12px;
@@ -2534,6 +2536,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .banner-left p {
   margin: 20px 0px;
+    font-size: 1.3rem;
+    line-height: 2.2rem;
 }
 
 .banner-left .primary-btn {
@@ -3231,11 +3235,14 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .insurence-right p, .insurence-left p {
-  max-width: 445px;
+  max-width: 100%;
+    font-size: 1.3rem;
+    line-height: 2rem;
 }
 
 .insurence-right img, .insurence-left img {
   width: 100%;
+    margin-bottom: 15px;
 }
 
 .list-wrap {

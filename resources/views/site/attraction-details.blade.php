@@ -26,10 +26,7 @@
 <section class="insurence-one-area section-gap">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6 insurence-left">
-                <img class="img-fluid img-one" src="{{$attraction->preview}}" alt="{{$attraction->h1}}">
-            </div>
-            <div class="col-lg-6 insurence-right">
+            <div class="col-lg-12 insurence-right">
                 <h1>{{$attraction->h1}}</h1>
 {{--                category_id--}}
 {{--                distance_from_center--}}

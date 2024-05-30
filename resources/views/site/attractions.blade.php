@@ -32,6 +32,13 @@
             @foreach($attractions as $attraction)
             <div class="col-lg-4">
                 <div class="single-destinations">
+                    @if(\Auth::id() != null)
+                        @if(in_array($attraction->id, $favoritesAttractions))
+                            <span class="remove-from-favorite" data-id="{{$attraction->id}}">222</span>
+                        @else
+                            <span class="add-to-favorite" data-id="{{$attraction->id}}">111</span>
+                        @endif
+                    @endif
                     <div class="thumb">
                         <img src="{{$attraction->preview}}" alt="{{$attraction->h1}}" loading="lazy">
                     </div>
@@ -53,7 +60,7 @@
                                 <span>@if($attraction->is_availability_of_excursions) Да @else Нет @endif</span>
                             </li>
                             <li class="d-flex justify-content-between align-items-center">
-                                <span>Музей</span>
+                                <span>{{$attraction->category_name}}</span>
                                 <a href="/attractions/{{$attraction->alias}}" class="price-btn">Подробнее</a>
                             </li>
                         </ul>
@@ -68,6 +75,42 @@
 </section>
 <!-- End destinations Area -->
 
+<style>
+    .add-to-favorite, .remove-from-favorite {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        z-index: 2;
+    }
+</style>
+
+<script>
+    //console.log(document.querySelectorAll('.add-to-favorite'));
+
+    let items = document.querySelectorAll('.add-to-favorite');
+    items.forEach(el => {
+
+        el.addEventListener('click', function () {
+            let id = this.getAttribute('data-id');
+
+            fetch('/add-to-favorites/?id=' + id);
+
+            el.classList.add('remove-from-favorite');
+            el.classList.remove('add-to-favorite');
+        });
+
+    });
+
+    // document.querySelectorAll('.add-to-favorite').forEach(el => {
+    //
+    //     console.log(el);
+    //
+    // });
+
+
+
+</script>
 
 
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Site;
 
 use App\Models\StaticPages\StaticPage;
 use App\Models\Attractions\Attraction;
+use DB;
+use Illuminate\Support\Facades\Storage;
 
 class AttractionsController
 {
@@ -11,8 +13,24 @@ class AttractionsController
     {
         $ID_PAGE = 2;
         $page = StaticPage::where(['id' => $ID_PAGE])->first();
-        $attractions = Attraction::where(['status' => 1])->get();
-        return view('site.attractions', compact('page', 'attractions'));
+        $attractions = DB::table('attractions')
+            ->leftJoin('attraction_categories', 'attractions.category_id', 'attraction_categories.id')
+            ->select('attractions.*', 'attraction_categories.name as category_name')
+            ->where(['attractions.status' => 1])
+            ->get();
+
+        $favoritesAttractions = [];
+        if (\Auth::id() != null) {
+            if (!Storage::disk('local')->exists('favorites/' . \Auth::id() . '.txt')) {
+                Storage::disk('local')->put('favorites/' . \Auth::id() . '.txt', '');
+            } else {
+                $favoritesString = Storage::disk('local')->get('favorites/' . \Auth::id() . '.txt');
+                $favoritesAttractions = explode(',', $favoritesString);
+            }
+        }
+
+
+        return view('site.attractions', compact('page', 'attractions', 'favoritesAttractions'));
     }
 
     public function opedAttraction($alias)
