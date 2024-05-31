@@ -18,6 +18,6 @@ Route::get('/blog/{alias}', [BlogController::class, 'opedPost']);
 //Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 
 Route::get('/add-to-favorites', [FetchController::class, 'addToFavorites']);
-Route::get('/remove-to-favorites', [FetchController::class, 'addToFavorites']);
+Route::get('/remove-from-favorites', [FetchController::class, 'removeFromFavorites']);
 
 //10 xml - карту сайта

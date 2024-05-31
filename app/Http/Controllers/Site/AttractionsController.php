@@ -29,7 +29,6 @@ class AttractionsController
             }
         }
 
-
         return view('site.attractions', compact('page', 'attractions', 'favoritesAttractions'));
     }
 
@@ -45,8 +44,27 @@ class AttractionsController
 
     public function favorites()
     {
+        if (\Auth::id() == null) {
+            return abort(404);
+        }
+
         $ID_PAGE = 3;
         $page = StaticPage::where(['id' => $ID_PAGE])->first();
-        return view('site.favorites', compact('page'));
+
+        $attractions = [];
+
+        if (Storage::disk('local')->exists('favorites/' . \Auth::id() . '.txt')) {
+            $favoritesString = Storage::disk('local')->get('favorites/' . \Auth::id() . '.txt');
+            $attractionsIDArr = explode(',', $favoritesString);
+
+            $attractions = DB::table('attractions')
+                ->leftJoin('attraction_categories', 'attractions.category_id', 'attraction_categories.id')
+                ->select('attractions.*', 'attraction_categories.name as category_name')
+                ->where(['attractions.status' => 1])
+                ->whereIn('attractions.id', $attractionsIDArr)
+                ->get();
+        }
+
+        return view('site.favorites', compact('page', 'attractions'));
     }
 }

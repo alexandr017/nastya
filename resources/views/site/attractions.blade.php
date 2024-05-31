@@ -2,7 +2,6 @@
 @section('meta_description', $page->meta_description)
 @extends('site.layout')
 
-
 @section('content')
 <!-- start banner Area -->
 <section class="about-banner relative">
@@ -34,9 +33,13 @@
                 <div class="single-destinations">
                     @if(\Auth::id() != null)
                         @if(in_array($attraction->id, $favoritesAttractions))
-                            <span class="remove-from-favorite" data-id="{{$attraction->id}}">222</span>
+                            <span class="favorite-button remove-from-favorite" data-id="{{$attraction->id}}">
+                                <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 107.39"><defs><style>.cls-1{fill:#FFF;fill-rule:evenodd;}</style></defs><title>red-heart</title><path class="cls-1" d="M60.83,17.18c8-8.35,13.62-15.57,26-17C110-2.46,131.27,21.26,119.57,44.61c-3.33,6.65-10.11,14.56-17.61,22.32-8.23,8.52-17.34,16.87-23.72,23.2l-17.4,17.26L46.46,93.55C29.16,76.89,1,55.92,0,29.94-.63,11.74,13.73.08,30.25.29c14.76.2,21,7.54,30.58,16.89Z"/></svg>
+                            </span>
                         @else
-                            <span class="add-to-favorite" data-id="{{$attraction->id}}">111</span>
+                            <span class="favorite-button add-to-favorite" data-id="{{$attraction->id}}">
+                                <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 107.39"><defs><style>.cls-1{fill:#FFF;fill-rule:evenodd;}</style></defs><title>red-heart</title><path class="cls-1" d="M60.83,17.18c8-8.35,13.62-15.57,26-17C110-2.46,131.27,21.26,119.57,44.61c-3.33,6.65-10.11,14.56-17.61,22.32-8.23,8.52-17.34,16.87-23.72,23.2l-17.4,17.26L46.46,93.55C29.16,76.89,1,55.92,0,29.94-.63,11.74,13.73.08,30.25.29c14.76.2,21,7.54,30.58,16.89Z"/></svg>
+                            </span>
                         @endif
                     @endif
                     <div class="thumb">
@@ -78,40 +81,41 @@
 <style>
     .add-to-favorite, .remove-from-favorite {
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: 40px;
+        right: 20px;
         cursor: pointer;
         z-index: 2;
+    }
+
+
+    /*.add-to-favorite svg, .remove-from-favorite svg {*/
+    /*    !*fill: #fff;*!*/
+    /*}*/
+
+    .remove-from-favorite svg path, .add-to-favorite svg:hover path {
+        fill: #ed1b24;
     }
 </style>
 
 <script>
     //console.log(document.querySelectorAll('.add-to-favorite'));
 
-    let items = document.querySelectorAll('.add-to-favorite');
-    items.forEach(el => {
-
+    let items0 = document.querySelectorAll('.favorite-button');
+    items0.forEach(el => {
         el.addEventListener('click', function () {
             let id = this.getAttribute('data-id');
 
-            fetch('/add-to-favorites/?id=' + id);
-
-            el.classList.add('remove-from-favorite');
-            el.classList.remove('add-to-favorite');
+            if (el.classList.contains('add-to-favorite')) {
+                fetch('/add-to-favorites/?id=' + id);
+                el.classList.add('remove-from-favorite');
+                el.classList.remove('add-to-favorite');
+            } else {
+                fetch('/remove-from-favorites/?id=' + id);
+                el.classList.remove('remove-from-favorite');
+                el.classList.add('add-to-favorite');
+            }
         });
-
     });
-
-    // document.querySelectorAll('.add-to-favorite').forEach(el => {
-    //
-    //     console.log(el);
-    //
-    // });
-
-
-
 </script>
-
-
 
 @endsection
