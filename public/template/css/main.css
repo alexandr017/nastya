@@ -4502,3 +4502,34 @@ body.mobile-nav-active #mobile-nav-toggle {
 .footer-text a, .footer-text i {
   color: #f8b600;
 }
+
+.search-form {
+
+}
+
+.search-form input {
+    padding: 5px;
+    outline: 0;
+    border: 0;
+    border-radius: 5px;
+    min-width: 300px;
+}
+
+.search-form button {
+    background: #f8b600;
+    color: #222;
+    font-weight: 600;
+    padding: 5px 20px;
+    border: 0;
+}
+
+
+@media (max-width: 1200px) {
+    .search-form input {
+        padding: 5px;
+        outline: 0;
+        border: 0;
+        border-radius: 5px;
+        min-width: 200px;
+    }
+}

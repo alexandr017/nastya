@@ -16,6 +16,7 @@ Route::get('/favorites', [AttractionsController::class, 'favorites']);
 Route::get('/blog', [BlogController::class, 'blogIndex']);
 Route::get('/blog/{alias}', [BlogController::class, 'opedPost']);
 //Route::get('/sitemap.xml', [SitemapController::class, 'index']);
+Route::get('/search', [IndexController::class, 'search']);
 
 Route::get('/add-to-favorites', [FetchController::class, 'addToFavorites']);
 Route::get('/remove-from-favorites', [FetchController::class, 'removeFromFavorites']);

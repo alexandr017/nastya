@@ -8,6 +8,10 @@
                 @endif
 
             </div>
+            <form class="search-form" method="GET" action="/search">
+                <input type="search" placeholder="Улица Советская" name="atraction">
+                <button type="submit">Найти</button>
+            </form>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
                     <li><a href="/">Главная</a></li>
