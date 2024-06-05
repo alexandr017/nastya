@@ -18,35 +18,34 @@
     </section>
     <!-- End banner Area -->
 
-    <!-- Start top-category-widget Area -->
-    <section class="top-category-widget-area pt-90 pb-90 ">
-        <div class="container">
-            <div class="row">
-                @foreach($posts as $post)
-                <div class="col-lg-4">
-                    <div class="single-cat-widget">
-                        <div class="content relative">
-                            <div class="overlay overlay-bg"></div>
-                            <a href="/blog/{{$post->alias}}" target="_blank">
-                                <div class="thumb">
-                                    <img class="content-image img-fluid d-block mx-auto" src="{{$post->preview}}" alt="{{$post->h1}}">
-                                </div>
-                                <div class="content-details">
-                                    <h4 class="content-title mx-auto">{{$post->h1}}</h4>
-                                    <span></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                    <br>
-                    <br>
-                @endforeach
-            </div>
-        </div>
-    </section>
-    <!-- End top-category-widget Area -->
-
+{{--    <!-- Start top-category-widget Area -->--}}
+{{--    <section class="top-category-widget-area pt-90 pb-90 ">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                @foreach($posts as $post)--}}
+{{--                <div class="col-lg-4">--}}
+{{--                    <div class="single-cat-widget">--}}
+{{--                        <div class="content relative">--}}
+{{--                            <div class="overlay overlay-bg"></div>--}}
+{{--                            <a href="/blog/{{$post->alias}}" target="_blank">--}}
+{{--                                <div class="thumb">--}}
+{{--                                    <img class="content-image img-fluid d-block mx-auto" src="{{$post->preview}}" alt="{{$post->h1}}">--}}
+{{--                                </div>--}}
+{{--                                <div class="content-details">--}}
+{{--                                    <h4 class="content-title mx-auto">{{$post->h1}}</h4>--}}
+{{--                                    <span></span>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                    <br>--}}
+{{--                    <br>--}}
+{{--                @endforeach--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
+{{--    <!-- End top-category-widget Area -->--}}
 
 
 
@@ -56,21 +55,23 @@
     <section class="recent-blog-area section-gap">
 
         <div class="container">
+
             <div class="row d-flex justify-content-center">
-                <div class="menu-content pb-60 col-lg-9">
-                    <div class="title text-center">
-                        <h1 class="mb-10">Последние записи блога</h1>
-                        <p>Самая свежая и актуальная информация для гостей города и области. Помощь для туристов, студентов и много другой полезной информации.</p>
+                <div class="menu-content pb-40 col-lg-8">
+                    <div class="title text-center lead">
+                        <p>{{$page->lead}}</p>
                     </div>
                 </div>
             </div>
+
             <div class="row">
-                <div class="active-recent-blog-carusel">
+
 
                     @foreach($posts as $post)
+                    <div class="col-sm-12 col-md-4 blog-post">
                         <div class="single-recent-blog-post item">
                             <div class="thumb">
-                                <a href="/blog/{{$post->alias}}"> <img class="img-fluid" src="{{$post->preview}}" alt=""></a>
+                                <a href="/blog/{{$post->alias}}"> <img class="img-fluid" src="{{$post->preview}}" alt="{{$post->h1}}"></a>
                             </div>
                             <div class="details">
 
@@ -79,14 +80,21 @@
                                 <h6 class="date">{{date('d.m.Y', strtotime($post->date))}}</h6>
                             </div>
                         </div>
+                    </div>
                     @endforeach
 
 
-                </div>
+
             </div>
         </div>
     </section>
     <!-- End recent-blog Area -->
 
+
+    <style>
+        .blog-post {
+            margin-bottom: 40px;
+        }
+    </style>
 
 @endsection

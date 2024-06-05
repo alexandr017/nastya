@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\StaticPages\StaticPage;
 
-class StaticPagesController extends Controller
+class StaticPagesController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,8 @@ class StaticPagesController extends Controller
     public function index()
     {
         $pages = StaticPage::all();
-        return view('admin.pages.index', compact('pages'));
+        $breadcrumbs = 'Страницы';
+        return view('admin.pages.index', compact('pages', 'breadcrumbs'));
     }
 
     /**
@@ -22,7 +22,8 @@ class StaticPagesController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.create');
+        $breadcrumbs = 'Страницы';
+        return view('admin.pages.create', compact('breadcrumbs'));
     }
 
     /**
@@ -51,7 +52,8 @@ class StaticPagesController extends Controller
             return redirect('/admin-panel/static-pages');
         }
 
-        return view('admin.pages.edit', compact('page','id'));
+        $breadcrumbs = 'Страницы';
+        return view('admin.pages.edit', compact('page','id', 'breadcrumbs'));
     }
 
     /**

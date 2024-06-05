@@ -1,5 +1,5 @@
-{{--@section('title', $page->title)--}}
-{{--@section('meta_description', $page->meta_description)--}}
+@section('title', $post->title)
+@section('meta_description', $post->meta_description)
 @extends('site.layout')
 
 
@@ -26,23 +26,24 @@
     <section class="post-content-area single-post-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-9 posts-list">
+                <div class="col-lg-12 posts-list">
                     <div class="single-post row">
-                        <div class="col-lg-12">
-                            <div class="feature-img">
-                                <img class="img-fluid" src="{{$post->preview}}" alt="">
+                        <div class="feature-img" style="margin: auto">
+                            <img class="img-fluid" src="{{$post->preview}}" alt="{{$post->h1}}">
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 meta-details">
+                                <div class="user-details row">
+                                    <p class="date col-lg-12 col-md-12 col-6"><a href="#">{{date('d.m.Y', strtotime($post->date))}}</a> <span class="lnr lnr-calendar-full"></span></p>
+                                </div>
+                            </div>
+                            <div class="col-lg-10 col-md-10">
+                                <h3 class="mt-20 mb-20">{{$post->h1}}</h3>
+                                <div class="content">{!! $post->content !!}</div>
                             </div>
                         </div>
-                        <div class="col-lg-3  col-md-3 meta-details">
-                            <div class="user-details row">
-                                <p class="date col-lg-12 col-md-12 col-6"><a href="#">{{date('d.m.Y', strtotime($post->date))}}</a> <span class="lnr lnr-calendar-full"></span></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-9 col-md-9">
-                            <h3 class="mt-20 mb-20">{{$post->h1}}</h3>
-                           <div class="content">{!! $post->content !!}</div>
 
-                        </div>
+
                     </div>
                 </div>
                 <div class="col-lg-3 sidebar-widgets">
@@ -51,5 +52,11 @@
         </div>
     </section>
 
+    <style>
+        .content {
+            font-size: 1.3rem;
+            line-height: 2rem;
+        }
+    </style>
 
 @endsection

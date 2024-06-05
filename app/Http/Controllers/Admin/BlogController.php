@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Blog\Post;
 
-class BlogController extends Controller
+class BlogController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,8 @@ class BlogController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('admin.post.index', compact('posts'));
+        $breadcrumbs = 'Записи';
+        return view('admin.post.index', compact('posts', 'breadcrumbs'));
     }
 
     /**
@@ -22,7 +22,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('admin.post.create');
+        $breadcrumbs = 'Записи';
+        return view('admin.post.create', compact('breadcrumbs'));
     }
 
     /**
@@ -51,7 +52,8 @@ class BlogController extends Controller
             return redirect('/admin-panel/blog');
         }
 
-        return view('admin.post.edit', compact('post','id'));
+        $breadcrumbs = 'Записи';
+        return view('admin.post.edit', compact('post','id', 'breadcrumbs'));
     }
 
     /**
@@ -78,7 +80,6 @@ class BlogController extends Controller
      */
     public function destroy(string $id, Request $request)
     {
-        dd(1);
         $post = Post::find($id);
 
         if ($post == null) {

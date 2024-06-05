@@ -3032,7 +3032,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .about-content h1 {
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 600;
 }
 
@@ -4532,4 +4532,9 @@ body.mobile-nav-active #mobile-nav-toggle {
         border-radius: 5px;
         min-width: 200px;
     }
+}
+
+.lead {
+    font-size: 18px;
+    line-height: 28px;
 }

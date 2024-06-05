@@ -2,5 +2,5 @@
 
 
 @section('content')
-    это главная админки
+    Это главная админки
 @endsection

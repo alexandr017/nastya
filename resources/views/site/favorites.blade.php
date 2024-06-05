@@ -23,7 +23,7 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-40 col-lg-8">
-                    <div class="title text-center">
+                    <div class="title text-center lead">
                         <p>{{$page->lead}}</p>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                     <div class="col-lg-4">
                         <div class="single-destinations">
                             <span class="favorite-button remove-from-favorite" data-id="{{$attraction->id}}">
-                                <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 107.39"><defs><style>.cls-1{fill:#FFF;fill-rule:evenodd;}</style></defs><title>red-heart</title><path class="cls-1" d="M60.83,17.18c8-8.35,13.62-15.57,26-17C110-2.46,131.27,21.26,119.57,44.61c-3.33,6.65-10.11,14.56-17.61,22.32-8.23,8.52-17.34,16.87-23.72,23.2l-17.4,17.26L46.46,93.55C29.16,76.89,1,55.92,0,29.94-.63,11.74,13.73.08,30.25.29c14.76.2,21,7.54,30.58,16.89Z"/></svg>
+                                <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 107.39"><defs><style>.cls-1{fill:#FFF;fill-rule:evenodd;}</style></defs><path class="cls-1" d="M60.83,17.18c8-8.35,13.62-15.57,26-17C110-2.46,131.27,21.26,119.57,44.61c-3.33,6.65-10.11,14.56-17.61,22.32-8.23,8.52-17.34,16.87-23.72,23.2l-17.4,17.26L46.46,93.55C29.16,76.89,1,55.92,0,29.94-.63,11.74,13.73.08,30.25.29c14.76.2,21,7.54,30.58,16.89Z"/></svg>
                             </span>
                             <div class="thumb">
                                 <img src="{{$attraction->preview}}" alt="{{$attraction->h1}}" loading="lazy">

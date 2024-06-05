@@ -9,7 +9,7 @@
         <div class="alert alert-success" role="alert">{{Session::get('alert-success')}}</div>
     @endif
 
-    <a href="/admin-panel/static-pages/create" class="btn btn-info"><i class="fas fa-plus"></i> Добавить страницу</a>
+{{--    <a href="/admin-panel/static-pages/create" class="btn btn-info"><i class="fas fa-plus"></i> Добавить страницу</a>--}}
 
 
     <table class="table table-striped">
@@ -31,9 +31,9 @@
                     <form style="display: inline-block;vertical-align: -1px;" method="post" action="/admin-panel/static-pages/destroy/{{$page->id}}">
                         <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}">
 
-                        <div class="card-group">
-                            <button type="submit" class="btn btn-danger" title="Удалить"><i class="fas fa-trash"></i></button>
-                        </div>
+{{--                        <div class="card-group">--}}
+{{--                            <button type="submit" class="btn btn-danger" title="Удалить"><i class="fas fa-trash"></i></button>--}}
+{{--                        </div>--}}
                     </form>
 
 

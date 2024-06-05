@@ -17,15 +17,12 @@ Route::post('admin-panel/attraction-categories/edit/{id}', [AttractionCategories
 Route::post('admin-panel/attraction-categories/destroy/{id}', [AttractionCategoriesController::class, 'destroy']);
 
 
-
-
 Route::get('admin-panel/attractions', [AttractionsController::class, 'index']);
 Route::get('admin-panel/attractions/create', [AttractionsController::class, 'create']);
 Route::post('admin-panel/attractions/store', [AttractionsController::class, 'store']);
 Route::get('admin-panel/attractions/edit/{id}', [AttractionsController::class, 'edit']);
 Route::post('admin-panel/attractions/edit/{id}', [AttractionsController::class, 'update']);
 Route::post('admin-panel/attractions/destroy/{id}', [AttractionsController::class, 'destroy']);
-
 
 
 //Route::get('admin-panel/reviews', [ReviewsController::class, 'index']);

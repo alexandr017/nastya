@@ -6,17 +6,19 @@ use App\Models\Attractions\AttractionCategory;
 use Illuminate\Http\Request;
 
 
-class AttractionCategoriesController
+class AttractionCategoriesController extends AdminController
 {
     public function index()
     {
         $categories = AttractionCategory::all();
-        return view('admin.attraction.categories.index', compact('categories'));
+        $breadcrumbs = 'Категории достопримечательностей';
+        return view('admin.attraction.categories.index', compact('categories', 'breadcrumbs'));
     }
 
     public function create()
     {
-        return view('admin.attraction.categories.create');
+        $breadcrumbs = 'Категории достопримечательностей';
+        return view('admin.attraction.categories.create',  compact('breadcrumbs'));
     }
     public function store(Request $request)
     {
@@ -37,7 +39,9 @@ class AttractionCategoriesController
             return redirect('/admin-panel/attraction-categories');
         }
 
-        return view('admin.attraction.categories.edit', compact('id', 'category'));
+        $breadcrumbs = 'Категории достопримечательностей';
+
+        return view('admin.attraction.categories.edit', compact('id', 'category', 'breadcrumbs'));
     }
     public function update($id, Request $request)
     {

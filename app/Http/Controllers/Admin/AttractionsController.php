@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Attractions\Attraction;
 use App\Models\Attractions\AttractionCategory;
 
-class AttractionsController extends Controller
+class AttractionsController  extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,8 @@ class AttractionsController extends Controller
     public function index()
     {
         $attractions = Attraction::all();
-        return view('admin.attraction.attractions.index', compact('attractions'));
+        $breadcrumbs = 'Достопримечательности';
+        return view('admin.attraction.attractions.index', compact('attractions', 'breadcrumbs'));
 
     }
 
@@ -25,7 +25,8 @@ class AttractionsController extends Controller
     public function create()
     {
         $categories = AttractionCategory::all();
-        return view('admin.attraction.attractions.create', compact('categories'));
+        $breadcrumbs = 'Достопримечательности';
+        return view('admin.attraction.attractions.create', compact('categories', 'breadcrumbs'));
     }
 
     /**
@@ -54,7 +55,8 @@ class AttractionsController extends Controller
         }
 
         $categories = AttractionCategory::all();
-        return view('admin.attraction.attractions.edit', compact('attraction', 'categories','id'));
+        $breadcrumbs = 'Достопримечательности';
+        return view('admin.attraction.attractions.edit', compact('attraction', 'categories','id', 'breadcrumbs'));
     }
 
     /**

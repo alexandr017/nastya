@@ -67,6 +67,7 @@
                     </div>
                 @endforeach
             </div>
+            <br>
             <a href="/attractions">Посмотреть все</a>
         </div>
     </section>

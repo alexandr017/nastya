@@ -11,10 +11,10 @@
             <form method="post" action="/admin-panel/static-pages/edit/{{$id}}">
                 <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}">
 
-                <div class="form-group">
-                    <label for="alias" class="col-form-label">URL-альяс</label>
-                    <input id="alias" name="alias" type="text" class="form-control" required value="{{$page->alias}}">
-                </div>
+{{--                <div class="form-group">--}}
+{{--                    <label for="alias" class="col-form-label">URL-альяс</label>--}}
+{{--                    <input id="alias" name="alias" type="text" class="form-control" required value="{{$page->alias}}">--}}
+{{--                </div>--}}
 
                 <div class="form-group">
                     <label for="title" class="col-form-label">Заголовок</label>
